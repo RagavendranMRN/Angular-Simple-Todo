@@ -13,7 +13,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
           >
             <i class="icon-trash"></i>
           </button>
-          <button class="btn btn-primary floatRt m-1">
+          <button
+            class="btn btn-primary floatRt m-1"
+            (click)="_handleCompleted(t.id)"
+          >
             <i [ngClass]="getClasses(t.isCompleted)"></i>
           </button>
         </div>
@@ -31,16 +34,20 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TaskListComponent {
   @Input() values;
   @Output() liftValue = new EventEmitter();
+  @Output() liftDelValue = new EventEmitter();
 
   completed: false;
 
   getClasses(completed) {
-    if (completed !== false) {
+    if (completed === false) {
       return 'icon-check-empty';
     }
     return 'icon-check';
   }
   _handleDelete(value) {
     this.liftValue.emit(value);
+  }
+  _handleCompleted(value) {
+    this.liftDelValue.emit(value);
   }
 }

@@ -1,6 +1,7 @@
-<div class="m-2">
-  <div class="input-group ">
-    <input
+<div class="container">
+  <div class="m-2">
+    <div class="input-group ">
+      <input
         [(ngModel)]="newTask"
         type="text"
         id="taskData"
@@ -8,15 +9,18 @@
         onblur="this.value=''"
         placeholder="Enter the task"
     />
-    <button class="form-control" class="btn btn-primary" (click)="_handleTaskAdd()">Add task </button>
+      <button class="form-control" class="btn btn-primary" (click)="_handleTaskAdd()">Add task </button>
+    </div>
   </div>
-</div>
-<div class="mt-4 d-flex justify-content-center">
-  <button class="btn btn-primary m-1" (click)="_handleFilter('All')" [class.active]="filterBy==='All'" title="All tasks"><i class="icon-calendar " ></i></button>
-  <button class="btn btn-primary m-1" (click)="_handleFilter('Completed')" [class.active]="filterBy==='Completed'" title="Completed"><i class="icon-thumbs-up" ></i></button>
-  <button class="btn btn-primary m-1" (click)="_handleFilter('Postponed')" [class.active]="filterBy==='Postponed'" title="Postponed"><i class="icon-share-alt" ></i></button>
-  <button class="btn btn-primary m-1" (click)="_handleFilter('Order')" [class.active]="filterBy==='Order'" title="Priority Order"><i class="icon-sort-by-attributes" ></i></button>
-</div>
-<div class="mt-4">
-  <task-list [values]=Filteredtasks (liftValue)="_handleDeleteTask($event)"></task-list>
+  <div class="mt-4 d-flex justify-content-center">
+    <button class="btn btn-primary m-1" (click)="_handleFilter('All')" [class.active]="filterBy==='All'" title="All tasks"><i class="icon-calendar " ></i></button>
+    <button class="btn btn-primary m-1" (click)="_handleFilter('Completed')" [class.active]="filterBy==='Completed'" title="Completed"><i class="icon-thumbs-up" ></i></button>
+    <button class="btn btn-primary m-1" (click)="_handleFilter('Postponed')" [class.active]="filterBy==='Postponed'" title="Postponed"><i class="icon-share-alt" ></i></button>
+    <button class="btn btn-primary m-1" (click)="_handleFilter('Order')" [class.active]="filterBy==='Order'" title="Priority Order"><i class="icon-sort-by-attributes" ></i></button>
+  </div>
+  <div class="mt-4">
+    <task-list [values]=Filteredtasks (liftValue)="_handleDeleteTask($event)"
+      (liftDelValue)="_handleCompletedTask($event)">
+    </task-list>
+  </div>
 </div>

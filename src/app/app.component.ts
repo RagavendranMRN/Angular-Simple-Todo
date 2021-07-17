@@ -18,7 +18,7 @@ export class AppComponent {
       task: this.newTask,
       desc: '',
       date: '',
-      isCompleted: '',
+      isCompleted: false,
       tags: this.filterBy
     };
     this.tasks.push(Taskobj);
@@ -26,6 +26,12 @@ export class AppComponent {
   }
   _handleDeleteTask(value) {
     this.tasks = this.tasks.filter(v => v !== value);
+    this.Filteredtasks = this.tasks.filter(v => v.tags === this.filterBy);
+  }
+  _handleCompletedTask(value) {
+    let index = this.tasks.findIndex(v => v.id == value);
+    this.tasks[index].isCompleted = true;
+    this.tasks[index].tags = 'Completed';
     this.Filteredtasks = this.tasks.filter(v => v.tags === this.filterBy);
   }
 
