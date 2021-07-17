@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, VERSION, Input } from '@angular/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
@@ -8,10 +8,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 })
 export class AppComponent {
   tasks: any = [];
+  Filteredtasks: any = [];
   newTask: any;
-  name = 'Angular ' + VERSION.major;
+  filterBy: String = 'All';
 
   _handleTaskAdd() {
-    this.tasks.push(this.newTask);
+    let Taskobj = {
+      id: this.tasks.length,
+      task: this.newTask,
+      desc: '',
+      date: '',
+      isCompleted: '',
+      tags: this.filterBy
+    };
+    this.tasks.push(Taskobj);
+    this.Filteredtasks = this.tasks.filter(v => v.tags === this.filterBy);
+  }
+  _handleDeleteTask(value) {
+    this.tasks = this.tasks.filter(v => v !== value);
+    this.Filteredtasks = this.tasks.filter(v => v.tags === this.filterBy);
+  }
+
+  _handleFilter(filter) {
+    this.filterBy = filter;
+    this.Filteredtasks = this.tasks.filter(v => v.tags === filter);
+    this.Filteredtasks.map(x => console.log(x.name));
   }
 }
