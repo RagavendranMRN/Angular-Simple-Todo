@@ -23,6 +23,7 @@ export class AppComponent {
     };
     this.tasks.push(Taskobj);
     this.Filteredtasks = this.tasks.filter(v => v.tags === this.filterBy);
+    this.newTask = null;
   }
   _handleDeleteTask(value) {
     this.tasks = this.tasks.filter(v => v !== value);
