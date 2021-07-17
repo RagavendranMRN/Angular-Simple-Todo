@@ -1,0 +1,14 @@
+<div class="m-2">
+  <div class="input-group ">
+    <input
+        [(ngModel)]="newTask"
+        type="text"
+        id="taskData"
+        class="form-control"
+        onblur="this.value=''"
+        placeholder="Enter the task"
+    />
+    <button class="form-control" class="btn btn-primary" (click)="_handleTaskAdd()">Add task </button>
+  </div>
+</div>
+<task-list [values]=tasks></task-list>
