@@ -7,10 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       <div class="card m-2">
         <div class="m-1">
           <label class="m-1">{{ t.task }}</label>
-          <button
-            class="btn btn-primary floatRt m-1"
-            (click)="_handleDelete(t)"
-          >
+          <button class="btn btn-danger floatRt m-1" (click)="_handleDelete(t)">
             <i class="icon-trash"></i>
           </button>
           <button
