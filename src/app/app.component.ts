@@ -7,6 +7,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  buttons: any = [
+    {
+      id: '#ff0000',
+      name: 'All'
+    },
+    {
+      id: '#FFA500',
+      name: 'Postponed'
+    },
+    {
+      id: '#008000',
+      name: 'Order'
+    },
+    {
+      id: '#002000',
+      name: 'Completed'
+    }
+  ];
   tasks: any = [];
   Filteredtasks: any = [];
   newTask: any;
