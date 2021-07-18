@@ -32,7 +32,7 @@
 
   <div class="mt-4">
     <task-list [values]=Filteredtasks (liftValue)="_handleDeleteTask($event)"
-      (liftDelValue)="_handleCompletedTask($event)">
+      (liftDelValue)="_handleCompletedTask($event)" (liftPrio)="_handlePriortiyTask($event)">
     </task-list>
   </div>
 </div>
