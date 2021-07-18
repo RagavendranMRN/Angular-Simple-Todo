@@ -13,11 +13,15 @@
     />
       <button class="form-control" class="btn btn-primary" (click)="_handleTaskAdd()">Add task </button>
     </div>
+
     <div class="mt-4 d-flex justify-content-start">
+
       <div class="btn-group btn-group-sm">
           <div *ngFor="let b of buttons">
            <span class="dot" style="background-color:{{b.id}}" (click)="_handleFilter(b.name)" [class.active]="filterBy===b.name" title="{{b.name}}"></span>
+
         </div>
+
         <!-- All Tasks -->
         <!-- <button class="btn btn-primary m-1" (click)="_handleFilter('All')" [class.active]="filterBy==='All'" title="All tasks"><i class="icon-calendar " ></i></button> -->
 
