@@ -1,6 +1,5 @@
 <div class="container">
   <h5 class="m-4">Simple Todo</h5>
-
   <div class="m-2">
     <div class="input-group ">
       <input
@@ -14,20 +13,26 @@
     />
       <button class="form-control" class="btn btn-primary" (click)="_handleTaskAdd()">Add task </button>
     </div>
+
     <div class="mt-4 d-flex justify-content-start">
+
       <div class="btn-group btn-group-sm">
+          <div *ngFor="let b of buttons">
+           <span class="dot" style="background-color:{{b.id}}" (click)="_handleFilter(b.name)" [class.active]="filterBy===b.name" title="{{b.name}}"></span>
 
-        <!-- All Tasks -->
-        <button class="btn btn-primary m-1" (click)="_handleFilter('All')" [class.active]="filterBy==='All'" title="All tasks"><i class="icon-calendar " ></i></button>
+        </div>
+        <i class="icon-plus pl-2 mt-1"  data-toggle="dropdown" ></i>
 
-        <!-- Postponed Task -->
-        <button class="btn btn-primary m-1" (click)="_handleFilter('Postponed')" [class.active]="filterBy==='Postponed'" title="Postponed"><i class="icon-share-alt" ></i></button>
-
-        <!-- Order by Priority -->
-        <button class="btn btn-primary m-1" (click)="_handleFilter('Order')" [class.active]="filterBy==='Order'" title="Priority Order"><i class="icon-sort-by-attributes-alt" ></i></button>
-
-        <!-- Completed Tasks -->
-        <button class="btn btn-primary m-1" (click)="_handleFilter('Completed')" [class.active]="filterBy==='Completed'" title="Completed"><i class="icon-thumbs-up" ></i></button>
+        <div class="dropdown-menu">
+          <div class="container">
+            <form [formGroup]="ColorPicker">
+              <input type="text" formControlName= "name" class="form-control mb-2" placeholder="Name"
+              />
+              <input formControlName="colorcode" type="color"  class="form-control mb-2 p-0 m-0"/>
+              <button class="btn btn-primary float-right" (click)="_handleTagListCreation()" >Create</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

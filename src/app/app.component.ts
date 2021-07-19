@@ -1,4 +1,5 @@
 import { Component, VERSION, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
@@ -7,12 +8,40 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  buttons: any = [
+    {
+      id: '#628395',
+      name: 'All'
+    },
+    {
+      id: '#262A53',
+      name: 'Postponed'
+    },
+    {
+      id: '#FFA0A0',
+      name: 'Order'
+    },
+    {
+      id: '#FFE3E3',
+      name: 'Completed'
+    }
+  ];
   tasks: any = [];
   Filteredtasks: any = [];
   newTask: any;
   filterBy: String = 'All';
+  ColorPicker: FormGroup;
 
   constructor() {}
+
+  ngOnInit() {
+    let name = new FormControl('', Validators.required);
+    let colorcode = new FormControl('', Validators.required);
+    this.ColorPicker = new FormGroup({
+      name: name,
+      colorcode: colorcode
+    });
+  }
 
   // prio 1-High,2- Medium, 3 - Low
   _handleTaskAdd() {
@@ -29,26 +58,33 @@ export class AppComponent {
     this._handleFilter(this.filterBy);
     this.newTask = null;
   }
-  _handleDeleteTask(value) {
+  _handleDeleteTask = value => {
     this.tasks = this.tasks.filter(v => v !== value);
     this._handleFilter(this.filterBy);
-  }
-  _handleCompletedTask(value) {
+  };
+  _handleCompletedTask = value => {
     let index = this.tasks.findIndex(v => v.id == value);
-    this.tasks[index].isCompleted = true;
-    this.tasks[index].tags = 'Completed';
+    this.tasks[index].isCompleted =
+      this.tasks[index].isCompleted === false ? true : false;
     this._handleFilter(this.filterBy);
-  }
+  };
 
-  _handleFilter(filter) {
+  _handleFilter = filter => {
     this.filterBy = filter;
     this.Filteredtasks = this.tasks.filter(v => v.tags === filter);
-  }
+  };
 
-  _handlePriortiyTask(ChangedPrio) {
+  _handlePriortiyTask = ChangedPrio => {
     let index = this.tasks.findIndex(v => v.id == ChangedPrio.id);
     this.tasks[index].prio = ChangedPrio.prio;
-    this.tasks[index].tags = 'Order';
     this._handleFilter(this.filterBy);
-  }
+  };
+  _handleTagListCreation = () => {
+    if (this.ColorPicker.valid) {
+      this.buttons.push({
+        id: this.ColorPicker.value.colorcode,
+        name: this.ColorPicker.value.name
+      });
+    }
+  };
 }
