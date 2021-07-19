@@ -72,6 +72,10 @@ export class AppComponent {
   _handleFilter = filter => {
     this.filterBy = filter;
     this.Filteredtasks = this.tasks.filter(v => v.tags === filter);
+
+    this.Filteredtasks = this.Filteredtasks.sort(
+      (x, y) => Number(x.isCompleted) - Number(y.isCompleted)
+    );
   };
 
   _handlePriortiyTask = ChangedPrio => {

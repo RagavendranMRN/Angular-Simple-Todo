@@ -3,6 +3,7 @@
     <div class="m-1">
       <div class="input-group ">
         <input
+        [style.background-color]="t.isCompleted === false ? 'white' : '#D3D3D3'"
             class="m-1 form-control border border-white"
             [ngClass]="getPrio(t.prio)"
             [style.textDecorationLine]="t.isCompleted == false ? '':'line-through'"
