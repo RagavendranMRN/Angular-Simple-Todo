@@ -29,7 +29,7 @@ export class AppComponent {
   tasks: any = [];
   Filteredtasks: any = [];
   newTask: any;
-  filterBy: String = 'All';
+  filterBy: String = 'Primary';
   ColorPicker: FormGroup;
 
   constructor() {}

@@ -9,10 +9,15 @@ p {
   padding: 5px;
   cursor: pointer;
 }
+.dot:hover {
+  width: 50px;
+  border-radius: 15%;
+}
 .active {
   height: 23px;
   width: 23px;
   margin-top: 10px;
+  border-radius: 50%;
 }
 
 .dotCreate {
@@ -30,13 +35,14 @@ p {
 .error {
   color: red;
 }
-.icon-remove {
+.icon-remove-active {
   display: none;
-  font-size: 0.7em;
-  position: relative;
-  margin-right: 5px;
-  margin-top: 0px;
 }
-.wrapper:hover .icon-remove {
-  display: none;
+.dot:hover .icon-remove-active {
+  display: inline;
+  color: rgb(255, 0, 0);
+  font-size: 0.7em;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 0px;
 }

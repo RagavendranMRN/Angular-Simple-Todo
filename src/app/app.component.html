@@ -20,9 +20,10 @@
 
       <div class="btn-group btn-group-sm">
           <div *ngFor="let b of buttons" class="wrapper">
-           <span class="dot" style="background-color:{{b.id}}" (click)="_handleFilter(b.name)" [class.active]="filterBy===b.name" title="{{b.name}}"></span>
+           <span class="dot" style="background-color:{{b.id}}" (click)="_handleFilter(b.name)" [class.active]="filterBy===b.name" title="{{b.name}}">
+          <i class="icon-remove icon-remove-active" visible="" (click)="_handleDeleteList(b.id)"></i></span>
           <span class="DeleteList" >
-            <i class="icon-remove" (click)="_handleDeleteList(b.id)"></i>
+
           </span>
         </div>
         <i class="icon-plus pl-2 mt-1"  data-toggle="dropdown" ></i>
