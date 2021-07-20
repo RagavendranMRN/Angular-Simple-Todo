@@ -7,6 +7,7 @@
              <span class="dot" style="background-color:{{b.id}}" (click)="_handleFilter(b.name)" [class.active]="filterBy===b.name" title="{{b.name}}">
             <i class="icon-remove icon-remove-active" visible="" (click)="_handleDeleteList(b.id)"></i></span>
             <span class="DeleteList" >
+
     </span>
           </div>
           <i class="icon-plus pl-2 mt-1"  data-toggle="dropdown" ></i>
@@ -42,6 +43,7 @@
           <button tyoe="sumbit" class="form-control" class="btn btn-primary" (click)="_handleTaskAdd()"><i class="icon-ok-sign "></i> </button>
         </div>
       </div>
+
       <div class="mt-4">
         <task-list [values]=Filteredtasks (liftValue)="_handleDeleteTask($event)"
           (liftDelValue)="_handleCompletedTask($event)" (liftPrio)="_handlePriortiyTask($event)">
