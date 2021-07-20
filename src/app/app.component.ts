@@ -45,18 +45,20 @@ export class AppComponent {
 
   // prio 1-High,2- Medium, 3 - Low
   _handleTaskAdd() {
-    let Taskobj = {
-      id: this.tasks.length,
-      task: this.newTask,
-      desc: '',
-      date: '',
-      prio: '',
-      isCompleted: false,
-      tags: this.filterBy
-    };
-    this.tasks.push(Taskobj);
-    this._handleFilter(this.filterBy);
-    this.newTask = null;
+    if (this.newTask) {
+      let Taskobj = {
+        id: this.tasks.length,
+        task: this.newTask,
+        desc: '',
+        date: '',
+        prio: '',
+        isCompleted: false,
+        tags: this.filterBy
+      };
+      this.tasks.push(Taskobj);
+      this._handleFilter(this.filterBy);
+      this.newTask = null;
+    }
   }
   _handleDeleteTask = value => {
     this.tasks = this.tasks.filter(v => v !== value);
@@ -91,4 +93,8 @@ export class AppComponent {
       });
     }
   };
+
+  _handleDeleteList(id) {
+    this.buttons = this.buttons.filter(v => v.id !== id);
+  }
 }
