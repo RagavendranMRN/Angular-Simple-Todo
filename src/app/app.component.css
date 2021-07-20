@@ -9,14 +9,13 @@ p {
   padding: 5px;
   cursor: pointer;
 }
-.dot:hover {
+/* .dot:hover {
   width: 50px;
   border-radius: 15%;
-}
+} */
 .active {
-  height: 23px;
-  width: 23px;
-  margin-top: 10px;
+  height: 33px;
+  width: 33px;
   border-radius: 50%;
 }
 
@@ -37,12 +36,15 @@ p {
 }
 .icon-remove-active {
   display: none;
-}
-.dot:hover .icon-remove-active {
-  display: inline;
   color: rgb(255, 0, 0);
   font-size: 0.7em;
   position: absolute;
   margin-left: 30px;
-  margin-top: 0px;
+}
+.dot:hover {
+  width: 50px;
+  border-radius: 15%;
+}
+.dot:hover .icon-remove-active {
+  display: inline-block;
 }
