@@ -36,7 +36,7 @@ p {
 }
 .icon-remove-active {
   display: none;
-  color: rgb(255, 0, 0);
+  color: white;
   font-size: 0.7em;
   position: absolute;
   margin-left: 30px;

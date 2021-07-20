@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-sm-1">
       <div class="mt-4 d-flex justify-content-start">
-
-        <div class="btn-group-vertical ">
+        <div class="btn-group-vertical">
             <div *ngFor="let b of buttons" class="wrapper">
              <span class="dot" style="background-color:{{b.id}}" (click)="_handleFilter(b.name)" [class.active]="filterBy===b.name" title="{{b.name}}">
             <i class="icon-remove icon-remove-active" visible="" (click)="_handleDeleteList(b.id)"></i></span>
@@ -43,10 +42,7 @@
     />
           <button tyoe="sumbit" class="form-control" class="btn btn-primary" (click)="_handleTaskAdd()"><i class="icon-ok-sign "></i> </button>
         </div>
-
-
       </div>
-
       <div class="mt-4">
         <task-list [values]=Filteredtasks (liftValue)="_handleDeleteTask($event)"
           (liftDelValue)="_handleCompletedTask($event)" (liftPrio)="_handlePriortiyTask($event)">
