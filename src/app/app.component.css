@@ -31,6 +31,10 @@ p {
 }
 .icon-remove {
   display: none;
+  font-size: 0.7em;
+  position: relative;
+  margin-right: 5px;
+  margin-top: 0px;
 }
 .wrapper:hover .icon-remove {
   display: none;
