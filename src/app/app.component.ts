@@ -11,11 +11,11 @@ export class AppComponent {
   buttons: any = [
     {
       id: '#628395',
-      name: 'All'
+      name: 'Primary'
     },
     {
       id: '#262A53',
-      name: 'Postponed'
+      name: 'Important'
     },
     {
       id: '#FFA0A0',
