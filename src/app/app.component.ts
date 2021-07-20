@@ -35,6 +35,7 @@ export class AppComponent {
   constructor() {}
 
   ngOnInit() {
+    console.log(window.innerWidth <= 800 && window.innerHeight <= 600);
     let name = new FormControl('', Validators.required);
     let colorcode = new FormControl('', Validators.required);
     this.ColorPicker = new FormGroup({
@@ -43,6 +44,12 @@ export class AppComponent {
     });
   }
 
+  _handleTaskListCss() {
+    if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+      return 'btn-group';
+    }
+    return 'btn-group-vertical';
+  }
   // prio 1-High,2- Medium, 3 - Low
   _handleTaskAdd() {
     if (this.newTask) {
