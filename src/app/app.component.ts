@@ -19,11 +19,11 @@ export class AppComponent {
     },
     {
       id: '#FFA0A0',
-      name: 'Order'
+      name: 'Plans'
     },
     {
       id: '#FFE3E3',
-      name: 'Completed'
+      name: 'Misc'
     }
   ];
   tasks: any = [];
