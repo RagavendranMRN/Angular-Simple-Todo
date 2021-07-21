@@ -99,6 +99,7 @@ export class AppComponent {
         name: this.ColorPicker.value.name
       });
     }
+    this.ColorPicker.reset();
   };
 
   _handleDeleteList(id) {
